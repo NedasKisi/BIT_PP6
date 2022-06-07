@@ -45,6 +45,21 @@
                 unlink($path . "/" . $_GET['file']);
                 ob_start();
                 header('Location:' . '?path=' . ltrim($path, './'));
+            } elseif ($_GET['action'] == 'download') {
+                $downloadFile = str_replace("&nbsp;", " ", htmlentities($file, 0, 'utf-8'));
+                ob_clean();
+                ob_flush();
+                header('Content-Description: File Transfer');
+                header('Content-Type: application/pdf');
+                header('Content-Disposition: attachment; filename=' . basename($downloadFile));
+                header('Content-Transfer-Encoding: binary');
+                header('Expires: 0');
+                header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+                header('Pragma: public');
+                header('Content-Length: ' . filesize($downloadFile));
+                ob_end_flush();
+                readfile($downloadFile);
+                exit;
             }
         }
     }
@@ -61,6 +76,7 @@
 
     // Icons for buttons
     $deleteIcon = file_get_contents("./svg/delete.svg");
+    $downloadIcon = file_get_contents("./svg/download.svg");
 
     echo ("<div class='header'><button class='buttonBack'>" . "<a href='./?path=" . ltrim($emptyString, "./") . "'>" . "Back" . "</a>" . "</button>"); //Back button
 
@@ -88,7 +104,7 @@
         }
         if (is_file($path . "/" . $item)) { // prevention to delete required files(styling and php)
             if ($item != "index.php") {
-                echo ("<td><a class='deleteButton'href='./?path=" . ltrim($path, "./") . "&file=" . $item . "&action=delete" . "'>" . "$deleteIcon</a></td>");
+                echo ("<td><a class='deleteButton'href='./?path=" . ltrim($path, "./") . "&file=" . $item . "&action=delete" . "'>" . "$deleteIcon</a><a class='downloadButton' href='./?path=" . ltrim($path, "./") . "&file=" . $item . "&action=download" . "'>" . "$downloadIcon</a></td>");
             } else {
                 echo ("<td></td>");
             }
