@@ -38,6 +38,17 @@
         move_uploaded_file($file_tmp, $file_store);
     }
 
+    if (array_key_exists('action', $_GET)) { // File delete; Download;
+        if (array_key_exists('file', $_GET)) {
+            $file = "./" . $_GET['path'] . "./" . $_GET['file'];
+            if ($_GET['action'] == 'delete') {
+                unlink($path . "/" . $_GET['file']);
+                ob_start();
+                header('Location:' . '?path=' . ltrim($path, './'));
+            }
+        }
+    }
+
     $dir_contents = scandir($path);
 
     $split = explode("/", $path); // Back function
@@ -47,6 +58,9 @@
             continue;
         $emptyString .= "/" . $split[$i];
     }
+
+    // Icons for buttons
+    $deleteIcon = file_get_contents("./svg/delete.svg");
 
     echo ("<div class='header'><button class='buttonBack'>" . "<a href='./?path=" . ltrim($emptyString, "./") . "'>" . "Back" . "</a>" . "</button>"); //Back button
 
@@ -74,6 +88,8 @@
         }
         if (is_file($path . "/" . $item)) { // prevention to delete required files(styling and php)
             if ($item != "index.php") {
+                echo ("<td><a class='deleteButton'href='./?path=" . ltrim($path, "./") . "&file=" . $item . "&action=delete" . "'>" . "$deleteIcon</a></td>");
+            } else {
                 echo ("<td></td>");
             }
         } else {
