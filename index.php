@@ -20,6 +20,15 @@
         $path = './';
     }
 
+    if (isset($_POST['name']) && $_POST['name'] != '') { // creates a folder if folder already exists gives out error 
+        if (file_exists($path . "/" . ($_POST['name']))) {
+            echo "<div class='errorMsg'>Directory already exists. Please try a different name!</div>"; // dir creation error
+            header('Refresh:3');
+        } else {
+            mkdir($path . "/" . ($_POST['name']));
+        }
+    }
+
     $dir_contents = scandir($path);
 
     $split = explode("/", $path); // Back function
@@ -31,7 +40,6 @@
     }
 
     echo ("<div class='header'><button class='buttonBack'>" . "<a href='./?path=" . ltrim($emptyString, "./") . "'>" . "Back" . "</a>" . "</button>"); //Back button
-
 
     // Table start
     echo ("<table>
@@ -65,6 +73,14 @@
     echo ("</tbody></table></div>"); // Table end
     ?>
 
+    <footer class="footer-forms">
+        <form class="createFolder" action="<?php $path ?>" method="POST">
+            <label for="name">Create new directory:<br></label>
+            <input type="text" id="name" name="name" placeholder="Folder name" maxlength="32">
+            <input id="createButton" type="submit" name="create" value="Create">
+            <br>
+        </form>
+    </footer>
 
 </body>
 
