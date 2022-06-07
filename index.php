@@ -29,6 +29,15 @@
         }
     }
 
+    if (isset($_POST['upload'])) { // File upload
+        $file_name = $_FILES['file']['name'];
+        $file_size = $_FILES['file']['size'];
+        $file_tmp = $_FILES['file']['tmp_name'];
+        $file_type = $_FILES['file']['type'];
+        $file_store = ($path . "/") . $file_name;
+        move_uploaded_file($file_tmp, $file_store);
+    }
+
     $dir_contents = scandir($path);
 
     $split = explode("/", $path); // Back function
@@ -40,6 +49,7 @@
     }
 
     echo ("<div class='header'><button class='buttonBack'>" . "<a href='./?path=" . ltrim($emptyString, "./") . "'>" . "Back" . "</a>" . "</button>"); //Back button
+
 
     // Table start
     echo ("<table>
@@ -80,6 +90,13 @@
             <input id="createButton" type="submit" name="create" value="Create">
             <br>
         </form>
+        <div class="uploadContainer">
+            <form class="upload-file" action="" method="POST" enctype="multipart/form-data">
+                <label>Upload a file:<br></label>
+                <input type="file" name="file" id="file">
+                <input id="UploadButton" type="submit" name="upload" value="Upload">
+            </form>
+        </div>
     </footer>
 
 </body>
