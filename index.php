@@ -11,7 +11,9 @@
 </head>
 
 <body>
+
     <?php
+
     if (isset($_GET['path'])) {
         $path = './' . $_GET['path'];
     } else {
@@ -19,6 +21,17 @@
     }
 
     $dir_contents = scandir($path);
+
+    $split = explode("/", $path); // Back function
+    $emptyString = "";
+    for ($i = 0; $i < count($split) - 1; $i++) {
+        if ($split[$i] == "")
+            continue;
+        $emptyString .= "/" . $split[$i];
+    }
+
+    echo ("<div class='header'><button class='buttonBack'>" . "<a href='./?path=" . ltrim($emptyString, "./") . "'>" . "Back" . "</a>" . "</button>"); //Back button
+
 
     // Table start
     echo ("<table>
@@ -32,7 +45,7 @@
     echo ("<tbody>");
 
     foreach ($dir_contents as $item) {
-        if ($item == "." || $item == "..") {
+        if ($item == "." || $item == "..") { //  (|| $item == "index.php" ) condition to hide file.
             continue;
         }
         echo ("<tr><td>" . (is_dir($path . "/" . $item) ? "<span class='fold'>Folder</span>" : "<span class='file'>File</span>") . "</td>");
@@ -41,7 +54,7 @@
         } else {
             echo ("<td>" . $item . "</td>");
         }
-        if (is_file($path . "/" . $item)) {
+        if (is_file($path . "/" . $item)) { // prevention to delete required files(styling and php)
             if ($item != "index.php") {
                 echo ("<td></td>");
             }
@@ -49,9 +62,9 @@
             echo ("<td></td>");
         }
     }
-    echo ("</tbody></table></div>");
-    // Table end
+    echo ("</tbody></table></div>"); // Table end
     ?>
+
 
 </body>
 
