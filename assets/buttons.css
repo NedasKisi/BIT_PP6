@@ -1,0 +1,79 @@
+/* Global button */
+
+button, input[type=submit]{
+    display: inline-block;
+    outline: none;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 1;
+    border-radius: 500px;
+    transition-property: background-color,border-color,color,box-shadow,filter;
+    transition-duration: .3s;
+    border: 1px solid transparent;
+    letter-spacing: 2px;
+    min-width: 100px;
+    text-transform: uppercase;
+    white-space: normal;
+    font-weight: 700;
+    text-align: center;
+    padding: 16px 14px 18px;
+    color: #616467;
+    box-shadow: inset 0 0 0 2px #616467;
+    background-color: transparent;
+    height: 48px;
+}
+
+button, input[type=submit]:hover{
+    color: #fff;
+    background-color: #616467;
+}
+
+/* Back button */
+
+.buttonBack {
+    height: 40px;
+    width: fit-content;
+    padding: 0;
+    margin: 5px 12px;
+    background-color: rgb(255, 255, 255);
+    border:0;
+}
+.buttonBack:hover {
+    background-color: #616467;  
+}
+.buttonBack a {
+    color: #616467;
+    padding: 11px 25px;
+}
+.buttonBack a:hover{
+    color: #fff;
+}
+
+/* Delete and Download button */
+
+.deleteButton, .downloadButton {
+ margin: 0 12px;
+}
+
+svg {
+    width: 20px;
+    height: 20px;
+}
+svg:hover {
+    filter: invert(45%) sepia(97%) saturate(1518%) hue-rotate(6deg) brightness(96%) contrast(101%);
+}
+
+/* Login and logout button */
+
+.logout {
+    margin-right:20px;
+}
+
+.loginButton {
+    margin:10px 88px;
+}
+.loginButton:hover {
+    box-shadow: inset 0 0 0 2px #e77600;
+    color: #e77600;
+    background-color: #fff;
+}

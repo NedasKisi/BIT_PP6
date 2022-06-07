@@ -1,0 +1,113 @@
+/* Input field text, password */
+
+input[type=text], [type=password] {
+    background-color: #fff;
+    height: 31px;
+    padding: 3px 7px;
+    line-height: normal;
+    border: 0;
+    border-radius: 3px;
+    box-shadow: 0 1px 0 rgb(255 255 255 / 50%), 0 1px 0 rgb(0 0 0 / 7%) inset;
+    outline: 0;
+    color: #111;
+    font-size: 13px;  
+}               
+input[type=text]:focus {
+    border-color: #e77600;
+    box-shadow: 0 0 3px 2px rgb(228 121 17 / 50%);
+}
+input[type=password]:focus {
+    border-color: #e77600;
+    box-shadow: 0 0 3px 2px rgb(228 121 17 / 50%);
+}
+
+/* Login form */
+
+.loginFormWrap{
+    display: flex;
+    flex-direction: column;
+    flex:1 0;
+    min-height: 800px;
+    margin: auto;
+    justify-content: center;   
+    align-items: center; 
+    align-self: center; 
+}
+.headerWrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+.loginInfo{
+    display: flex;
+    flex-direction: row;
+}
+.loginAdmin{    
+    border:2px solid #e77600;
+    border-radius: 15px;
+    margin:20px;
+    padding: 20px;
+
+}
+.loginUser{    
+    border:2px solid #616467;
+    border-radius: 15px;
+    margin:20px;
+    padding: 20px;
+}
+#username, #password {
+    border:1px solid black;
+    width: 100%;
+}
+
+/* Upload form */
+
+[type=file] {
+    background-color: #fff;
+    height: 31px;
+    padding: 3px 7px;
+    line-height: normal;
+    border: 1px solid #a6a6a6;
+    border-top-color: #949494;
+    border-radius: 3px;
+    box-shadow: 0 1px 0 rgb(255 255 255 / 50%), 0 1px 0 rgb(0 0 0 / 7%) inset;
+    outline: 0;
+    color: #111;
+    font-size: 13px;
+}
+input[type=file]:focus {
+    border-color: #e77600;
+    box-shadow: 0 0 3px 2px rgb(228 121 17 / 50%);
+}
+
+input[type="file"] {
+    border: 1px solid #ccc;
+    display: none;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+input[type=file]::-webkit-file-upload-button {
+    visibility: hidden;
+}
+input#name, input#file, form label {
+    margin: 0 20px;
+}
+
+.createFolder {
+    margin-left: 35px;
+}
+label {
+    font-weight: bold;
+    font-size:24px;
+}
+.loginInput{
+    margin: 10px 0;
+}
+form input {
+    margin-top: 5px;;
+}
+[type=submit] {
+    cursor: pointer;
+}

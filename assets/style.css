@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital@0;1&display=swap');
+
+* {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(255, 255, 255);
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 150px;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Error message */
+
+.errorMsg,.loggedOutMsg {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    position:absolute;
+    top: 0;
+    margin: auto;
+    z-index: 3;
+    color:rgb(255, 255, 255);
+    background-color: rgb(197, 56, 56);
+}
+/* .loggedOutMsg {
+    background-color: rgb(52, 117, 32);
+} */
+/* Top div(header) */
+
+.header {
+    background-color: rgb(255, 255, 255) transparent;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    top:0;
+    left: 0;
+    margin-top: 32px;
+}
+
+/* User greeting */
+
+.user-greeting {
+    font-size: 24px;
+    color: #000;
+    text-align: center;
+    margin:10px;
+}
+
+/* TABLE */
+
+table { 
+    border: none; 
+    border-collapse: collapse; 
+}
+table td { 
+    border-left: 1px solid #000; 
+}
+table td:first-child { 
+    border-left: none; 
+}
+.files-table {
+    height: 412px;
+    overflow-y: auto;
+}
+tbody {
+    overflow-y: auto;
+}
+table,th, tr, td{
+    border: solid 1px rgb(0, 0, 0);
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    margin:auto; 
+}
+th {
+    background-color: rgb(170, 170, 170);
+    color: #fff;
+    height: 50px;
+    width: 33%;
+}
+td {
+    font-weight: normal;
+    font-size: 16px;
+    width: 33%;
+    overflow: hidden;
+    height: 40px;
+}
+table td {
+    padding-left: 12px;
+}
+a {
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+    display: inline-block;
+}
+
+/* Directory link style */
+
+.folder-link{
+    text-decoration: underline;
+    color:#e77600;
+}
+.folder-link:hover{
+    color:#ec9537;
+    box-shadow: #ec9537;
+}
+
+/* Current directory path */
+.pathContainer {
+    font-size: 32px;
+    font-weight: bold;
+    margin: 30px 35px;
+}
+
+/* Footer */
+
+.footer-forms {
+    background: linear-gradient(0deg, rgb(170, 170, 170) 0%, rgba(255,255,255,1) 100%);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    position: fixed; 
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding:1rem 0;
+    margin-top: 1rem;
+}
+
+
+
+
+/* @media only screen and (max-width: 780px) {
+    .footer-forms {
+        flex-direction: column;
+        align-items: center;
+        
+    }
+    .createFolder,.upload-file {
+        width: 100%;
+    }
+} */
