@@ -8,7 +8,8 @@ if (isset($_POST['logout'])) { // logout
     unset($_SESSION['username']);
     unset($_SESSION['password']);
     unset($_SESSION['logged_in']);
-    header("Location: http://localhost/BIT_PP6/");
+    header('Location: ' . $_SERVER['PHP_SELF']);
+    die;
 }
 ?>
 

@@ -16,16 +16,6 @@ localhost/BIT_PP6
 
 - Login and browse.
 
-```diff
-- PLEASE NOTE : Make sure that folder name with the index file is named BIT_PP6
-- Change header location to the folder name that the project is currently in.
-- Otherwise app will not work as intended.
-```
-
-[![SNIPPET TO RENAMING](https://i.postimg.cc/1XKbZNq8/infoImg.png)](https://postimg.cc/9wrLd012)
-
-- PLEASE NOTE : Make sure that folder name with the index file is named BIT_PP6, or change header location to the folder name that the project is currently in.
-
 ## How to use
 
 - Login to the app with preset users (Choose either admin or user);
