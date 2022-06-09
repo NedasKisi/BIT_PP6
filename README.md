@@ -24,7 +24,6 @@ localhost/BIT_PP6
 - You can upload files by pressing on the field in the right side of the footer. File browser pop up will let you choose what you want and once that is done press upload.
 - You can navigate trought pages by clicking on directories (Highlighted in the list), also you can move back with the "Back" button.
 - You can also delete and download files by pressing asociated buttons in the table ( bin or download).
--
 
 ## Project tasks
 
